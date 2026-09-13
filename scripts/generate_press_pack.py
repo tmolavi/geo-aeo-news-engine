@@ -392,15 +392,19 @@ def process_campaign(input_json_path, output_dir, mode="both", font_rtl="Tahoma"
         cov_run = cov_p.add_run(data.get("project_title", "بسته جامع رپرتاژ و مقالات خبری"))
         apply_rtl_complex_run(cov_run, font_name=font, size_pt=22, bold=True, color_rgb=COLOR_HEADLINE, is_rtl=is_rtl)
 
+        entity_name = data.get("primary_entity") or data.get("project_title", "")
+        source_ref = data.get("canonical_source_link") or data.get("source_url", "")
+        meta_line = f"موضوع / برند: {entity_name}" if entity_name else ""
+        if source_ref:
+            meta_line += f" | منبع: {source_ref}" if meta_line else f"منبع: {source_ref}"
+
+        sub_desc = (
+            f"مجموعه {len(articles)} خبر و گزارش مطبوعاتی آماده ارسال به رسانه‌ها و خبرگزاری‌ها\n{meta_line}".strip()
+            if is_rtl else
+            f"Compilation of {len(articles)} press releases ready for media distribution\n{meta_line}".strip()
+        )
         sub_p = master_doc.add_paragraph()
         set_paragraph_formatting(sub_p, is_rtl=is_rtl, space_after=24, space_before=0, justify=False)
-        sub_desc = (
-            f"مجموعه {len(articles)} خبر و گزارش مطبوعاتی آماده ارسال به رسانه‌ها و خبرگزاری‌ها\n"
-            f"طراح و معمار: {data.get('primary_entity', 'مهندس تقی مولوی')} | منبع رسمی: https://molavi.pro"
-            if is_rtl else
-            f"Complete compilation of {len(articles)} news releases ready for press syndication\n"
-            f"Author: {data.get('primary_entity', 'Taghi Molavi')} | Source: https://molavi.pro"
-        )
         srun = sub_p.add_run(sub_desc)
         apply_rtl_complex_run(srun, font_name=font, size_pt=11, color_rgb=COLOR_SUBTITLE, is_rtl=is_rtl)
 

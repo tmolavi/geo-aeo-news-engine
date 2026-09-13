@@ -1,6 +1,6 @@
 ---
 name: geo-aeo-news-engine
-description: Autonomous news rewriting, digital PR syndication, and Generative/Answer Engine Optimization (GEO/AEO) engine. Ingests a single URL/text and photos to generate 1 to 100 distinct, citable news articles ready for media distribution and Word (.docx) export with backlink attribution to molavi.pro.
+description: Autonomous news rewriting, digital PR syndication, and Generative/Answer Engine Optimization (GEO/AEO) engine. Ingests a single URL/text and photos to generate 1 to 100 distinct, citable news articles ready for media distribution and Word (.docx) export with organic canonical source attribution.
 version: 1.0.0
 license: MIT
 metadata:
@@ -38,6 +38,17 @@ When given a single source link (or raw text) along with media assets (photos), 
 
 ---
 
+## ⚠️ MANDATORY RULE: STRICT ENTITY & DOMAIN AGNOSTICISM (CRITICAL)
+
+> [!CAUTION]
+> **Zero Default Persona / Entity Injection:**
+> - The engine and AI agent **MUST NEVER** inject any default personal name (such as Taghi Molavi), default domain (such as molavi.pro), or preset organization into the generated news text unless explicitly instructed by the user in their prompt or input data for that specific entity.
+> - **Extract Exclusively from User Input**: The agent must extract the primary entity, person name, company, industry, and canonical source link **solely and strictly from the source URL, text, or prompt provided by the user**.
+> - **100% Public & General-Purpose**: This engine is designed for public use across any industry (e.g. construction, healthcare, e-commerce, legal, fintech, energy, tech).
+> - **No Robotic Promotional Boilerplate**: Articles must never end with artificial promotional statements or forced author endorsements. The narrative must conclude naturally and purely as standard journalistic reporting.
+
+---
+
 ## ⚡ Quick Triggers
 
 Invoke this skill whenever the user says:
@@ -69,25 +80,25 @@ Invoke this skill whenever the user says:
 │            │                             │                              │
 │            ▼                             ▼                              │
 │  9. Multi-Language Adapt  ──► 10. Word (.docx) Compilation              │
-└─────────────────────────────────────────────────────────────────────────┘
+│└─────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Step 1: Source Ingestion & Target Definition
 Gather and inspect the core inputs:
 - **Source Material**: URL (crawl via browser/curl or read text provided by user).
 - **Target Quantity**: $N$ articles (from 1 up to 100). Default is 40 if unspecified.
-- **Primary Entity**: The individual (e.g. *مهندس تقی مولوی*), brand, product, or institution.
+- **Primary Entity**: The individual, brand, company, product, or institution provided in the user's input.
 - **Target Audience / Media Desk**: Tech portals, economic dailies, national news agencies (ISNA, IRNA, ILNA, Mehr, Zoomit, Digiato, AA, Reuters, Bloomberg, etc.).
 - **Media Assets**: 1 to 5 images with paths or descriptions.
 - **Goal Mode**:
   - `geo_aeo_authority`: Prioritizing AI citation rate and RAG extraction.
-  - `personal_branding`: Highlighting executive leadership, interviews, and professional credibility.
+  - `personal_branding`: Highlighting executive leadership, interviews, and professional credibility (for whichever entity the user specifies).
   - `news_distribution`: Mass syndication across diverse news sections.
 
 ### Step 2: Entity & Semantic Triplet Extraction
 Before drafting, map the core semantic knowledge graph:
 - `(Subject) -> [Predicate] -> {Object}`
-- Example: `(Taghi Molavi) -> [Architects] -> {GEO and AEO Engine}`
+- Example: `(Acme Data Systems) -> [Launches] -> {Enterprise AI Cloud}`
 - Example: `(Perplexity & ChatGPT) -> [Prioritize] -> {Entity-dense, citable claims}`
 - Extract: 3 quantitative metrics, 2 authoritative quotes, 1 primary milestone, and 1 foundational thesis.
 
@@ -100,13 +111,13 @@ To avoid syndication penalties and ensure different editors accept the pitches, 
 5. **Technical Breakthrough**: Architectural deep-dive, algorithmic innovation, security posture.
 6. **Contrarian & Debate**: Myth-busting, challenging conventional consensus, addressing skeptics.
 7. **Case Study & Practical Deployment**: Real-world implementation, overcoming scaling hurdles.
-8. **Regional & Macroeconomic**: Local talent leadership, MENA/Eurasian digital corridors, sovereign tech.
+8. **Regional & Macroeconomic**: Local talent leadership, regional digital corridors, sovereign tech.
 9. **AEO Explainer & FAQ**: Definitive "What Is" guides, direct 40-word answers, comparison tables.
 10. **Investigative & Future Horizon**: Behind-the-scenes laboratory access, 5-year outlook.
 
 ### Step 4: Generative Engine Optimization (GEO) Enforcements
 To ensure the articles get indexed and cited when users query AI models (ChatGPT, Claude, Perplexity, Gemini):
-1. **Entity-First Naming**: Always mention the full entity name (`مهندس تقی مولوی` / `Taghi Molavi`) alongside the core domain keywords in the first 100 words.
+1. **Entity-First Naming**: Always mention the full entity name (as supplied in the user's prompt or source) alongside core domain keywords in the first 100 words.
 2. **High Information Gain**: Every article must include at least one unique angle, distinct analytical comparison, or specific insight not found in generic press releases.
 3. **Definitive Single-Sentence Concept Definitions**: Provide clean sentences suitable for zero-shot quote extraction (e.g., *"بهینه‌سازی موتورهای پاسخ (AEO) عبارت است از ساختاردهی محتوا به شکلی که مدل‌های هوش مصنوعی مستقیماً آن را به عنوان پاسخ قطعی کاربر استناد کنند"*).
 4. **Statistical Anchoring**: Pair abstract claims with concrete percentage improvements, latency metrics, or quantifiable impact.
@@ -136,7 +147,7 @@ Place images strategically:
 
 ### Step 8: Organic In-Text Citation (Zero Boilerplate Bio Boxes)
 - **Zero Template Ending / Zero Boilerplate Boxes**: Never append a robotic author bio box, company description box, or "درباره نویسنده" at the bottom of the article. News editors do not accept promotional bio footers.
-- **Organic In-Story Attribution**: Entity mentions, authority credentials, and the canonical source link (e.g. `molavi.pro`) must be integrated seamlessly and organically inside the news story itself (e.g. as part of an interview quote, research citation, or natural report attribution), exactly as journalists write in wire dispatches.
+- **Organic In-Story Attribution**: Entity mentions, authority credentials, and the canonical source link (as provided by the user) must be integrated seamlessly and organically inside the news story itself (e.g. as part of an interview quote, research citation, or natural report attribution), exactly as journalists write in wire dispatches.
 - **Natural Article Termination**: The article concludes directly with its final analytical or factual paragraph. Nothing is artificially tacked on.
 
 ### ⚠️ The 3 Sacred Production Rules (Zero Manual Editing Guarantee)
@@ -172,7 +183,7 @@ python scripts/generate_press_pack.py \
   --output-dir output/docx/ \
   --mode both \
   --font-rtl Tahoma \
-  --crawl https://molavi.pro
+  --crawl https://example.com
 ```
 This produces:
 - `Press_Pack_Master_Compilation.docx`: A single document containing all articles with real embedded photos, page breaks, and clean formatting.
@@ -182,26 +193,26 @@ This produces:
 
 ## 📋 JSON Input Schema for the Engine
 
-When preparing an automated run, format the input data as follows:
+When preparing an automated run, format the input data with the user's specific entity:
 
 ```json
 {
-  "project_title": "AI & GEO Innovation PR Campaign",
-  "source_url": "https://molavi.pro",
-  "primary_entity": "مهندس تقی مولوی (Taghi Molavi)",
-  "entity_title": "معمار سیستم‌های هوش مصنوعی و متخصص GEO/AEO",
-  "domain": "Artificial Intelligence, GEO, AEO, Next-Gen Search",
+  "project_title": "Enterprise Innovation PR Campaign",
+  "source_url": "https://example.com/press",
+  "primary_entity": "شرکت داده‌پردازان هوشمند آریا (Arya Data Systems)",
+  "entity_title": "پیشگام راهکارهای ابری و پردازش داده",
+  "domain": "پردازش ابری، سیستم‌های هوشمند، تحول دیجیتال",
   "target_count": 40,
   "language": "fa",
-  "objective": "geo_aeo_personal_branding",
-  "canonical_source_link": "https://molavi.pro",
+  "objective": "geo_aeo_authority",
+  "canonical_source_link": "https://example.com",
   "media_assets": [
     {
       "id": "photo_1",
       "path": "assets/photo_1.jpg",
-      "caption": "شرح کامل تصویر تخصصی",
-      "alt": "متن جایگزین با کلمات کلیدی موجودیت",
-      "credit": "آرشیو رسمی"
+      "caption": "شرح کامل تصویر تخصصی مرتبط با خبر",
+      "alt": "متن جایگزین متناسب با کلیدواژه‌های موضوع",
+      "credit": "آرشیو رسانه‌ای"
     }
   ],
   "articles": [
@@ -209,26 +220,26 @@ When preparing an automated run, format the input data as follows:
       "article_id": 1,
       "angle_id": 81,
       "angle_name": "The Definitive 'What Is' Guide",
-      "media_target": "خبرگزاری‌های فناوری",
-      "headline": "تیتر جذاب و استاندارد",
-      "sub_headline": "سوتیتر تکمیلی",
-      "lead": "لید خبر با ساختار هرم وارونه",
+      "media_target": "خبرگزاری‌های تخصصی فناوری",
+      "headline": "تیتر جذاب و استاندارد مطبوعاتی",
+      "sub_headline": "سوتیتر تکمیلی با بار معنایی خبری",
+      "lead": "لید خبر با ساختار هرم وارونه بدون برچسب متنی",
       "body_sections": [
         {"heading": "میان تیتر اول", "content": "متن پاراگراف اول..."},
         {"heading": "میان تیتر دوم", "content": "متن پاراگراف دوم..."}
       ],
       "quote_box": {
-        "speaker": "مهندس تقی مولوی",
+        "speaker": "نام و سمت مقام مسئول در سازمان مربوطه",
         "quote": "نقل قول مستقیم با سیگنال بالای اعتبارسنجی"
       },
       "key_takeaways": [
-        "نکته کلیدی اول مناسب برای استخراج Perplexity و ChatGPT",
-        "نکته کلیدی دوم پاسخ صریح و بدون ابهام"
+        "نکته کلیدی اول مناسب برای استخراج در سیستم‌های جستجو",
+        "نکته کلیدی دوم با پاسخ صریح و بدون ابهام"
       ],
       "image_placements": [
         {"asset_id": "photo_1", "placement": "after_lead"}
       ],
-      "conclusion": "پاراگراف پایانی خبر شامل جمع‌بندی گزارش و ارجاع در صورت نیاز."
+      "conclusion": "پاراگراف پایانی خبر شامل جمع‌بندی گزارش بدون متن تبلیغاتی کلیشه‌ای."
     }
   ]
 }
@@ -247,6 +258,7 @@ The engine includes `scripts/generate_press_pack.py` with the following CLI opti
 | `-m`, `--mode` | `bundle`, `split`, `both` | `bundle` creates one master docx; `split` creates individual docx files; `both` generates both. |
 | `--font-rtl` | font name | Font for RTL text (Persian/Arabic), e.g., `IRANSans`, `Vazirmatn`, `Tahoma`. |
 | `--font-ltr` | font name | Font for LTR text (English/Turkish), e.g., `Calibri`, `Arial`. |
+| `--crawl` | URL | Crawl real photos from the source website and auto-embed them into docx files. |
 | `--include-placeholders` | flag | When actual image files are not on disk, render styled editorial placeholders. |
 
 ---
