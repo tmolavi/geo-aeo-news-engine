@@ -59,9 +59,7 @@
       ],
       "image_placements": [
         {"asset_id": "photo_1", "placement": "after_lead"}
-      ],
-      "source_link": "https://molavi.pro",
-      "author_bio": "تقی مولوی، معمار ارشد سیستم‌های هوش مصنوعی و پژوهشگر حوزه‌های GEO و استراتژی‌های مدرن موتورهای جستجو. برای اطلاعات بیشتر به https://molavi.pro مراجعه کنید."
+      ]
     }
   ]
 }

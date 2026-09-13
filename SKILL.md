@@ -134,19 +134,18 @@ Place images strategically:
   - Image Alt Text (متن جایگزین): Descriptive text with entity keywords for accessibility and image search.
   - Photo Credit (منبع عکاسی / تصویر): Official attribution.
 
-### Step 8: Canonical Backlinking & Author Bio Box
-Every generated article MUST conclude with:
-- **Canonical Reference Backlink**: A natural hyperlinked anchor text pointing to the primary URL (e.g., `https://molavi.pro`).
-- **Standard Boilerplate / About Box**: A concise 3-line professional biography or company profile:
-  > **درباره مهندس تقی مولوی:** متخصص و معمار ارشد سیستم‌های هوش مصنوعی و بهینه‌سازی موتورهای جستجو (GEO/AEO). جهت مطالعه مقالات تخصصی و بررسی پروژه‌ها به وب‌سایت رسمی ایشان در [molavi.pro](https://molavi.pro) مراجعه فرمایید.
+### Step 8: Organic In-Text Citation (Zero Boilerplate Bio Boxes)
+- **Zero Template Ending / Zero Boilerplate Boxes**: Never append a robotic author bio box, company description box, or "درباره نویسنده" at the bottom of the article. News editors do not accept promotional bio footers.
+- **Organic In-Story Attribution**: Entity mentions, authority credentials, and the canonical source link (e.g. `molavi.pro`) must be integrated seamlessly and organically inside the news story itself (e.g. as part of an interview quote, research citation, or natural report attribution), exactly as journalists write in wire dispatches.
+- **Natural Article Termination**: The article concludes directly with its final analytical or factual paragraph. Nothing is artificially tacked on.
 
 ### ⚠️ The 3 Sacred Production Rules (Zero Manual Editing Guarantee)
 
 > [!IMPORTANT]
-> **1. Rule of Zero Meta-Labels (Ready-to-Publish Guarantee):**
-> NEVER insert internal metadata labels, editorial instructions, or prompt tags into the article text!
-> - ❌ DO NOT write: `🎯 بخش رسانه‌ای هدف: ...`, `📐 زاویه خبری: ...`, `🔹 لید خبر: ...`, `📌 نکات کلیدی برای هوش مصنوعی: ...`, `📷 [محل قرارگیری تصویر: ...]`, `درباره نویسنده / روابط عمومی: ...`.
-> - ✅ INSTEAD write: Pure journalistic copy. The headline is just the headline. The lede begins immediately as a real news paragraph. Quotes flow naturally. The conclusion naturally includes the hyperlink to `https://molavi.pro`. The newsroom editor or journalist must be able to publish the piece immediately without manual cleanup!
+> **1. Rule of Zero Meta-Labels & Zero Boilerplate (Ready-to-Publish Guarantee):**
+> NEVER insert internal metadata labels, editorial instructions, prompt tags, or repetitive boilerplate blurbs into the article text!
+> - ❌ DO NOT write: `🎯 بخش رسانه‌ای هدف: ...`, `📐 زاویه خبری: ...`, `🔹 لید خبر: ...`, `📌 نکات کلیدی برای هوش مصنوعی: ...`, `📷 [محل قرارگیری تصویر: ...]`, `درباره نویسنده / روابط عمومی: ...`, or robotic closing blurbs like "علاقه‌مندان برای کسب اطلاعات بیشتر به نشانی...".
+> - ✅ INSTEAD write: 100% pure journalistic wire copy. The headline is pure news. The lede begins immediately as a real news paragraph. Quotes flow naturally in the body. The story ends naturally when the news narrative concludes. Any journalist or editor must be able to copy, paste, and publish the piece immediately without touching a single word!
 
 > [!IMPORTANT]
 > **2. Automatic Live Image Crawling & Embedding:**
@@ -229,8 +228,7 @@ When preparing an automated run, format the input data as follows:
       "image_placements": [
         {"asset_id": "photo_1", "placement": "after_lead"}
       ],
-      "source_link": "https://molavi.pro",
-      "author_bio": "بیوگرافی رسمی با ارجاع به https://molavi.pro"
+      "conclusion": "پاراگراف پایانی خبر شامل جمع‌بندی گزارش و ارجاع در صورت نیاز."
     }
   ]
 }
