@@ -310,21 +310,13 @@ def render_clean_news_article(doc, article, available_images, font_name="Tahoma"
             spk_run = qp.add_run(f"\n— {quote_box['speaker'].strip()}")
             apply_rtl_complex_run(spk_run, font_name=font_name, size_pt=10, color_rgb=COLOR_SUBTITLE, is_rtl=is_rtl)
 
-    # 7. Natural Concluding Section & Source Attribution
-    source_url = article.get("source_link") or "https://molavi.pro"
-    end_p = doc.add_paragraph()
-    set_paragraph_formatting(end_p, is_rtl=is_rtl, line_spacing=1.35, space_after=14, space_before=12, justify=True)
-    
-    concl_text = (
-        "علاقه‌مندان برای کسب اطلاعات تکمیلی، مطالعه مقالات پژوهشی و آشنایی با پروژه‌های تخصصی این حوزه می‌توانند به نشانی "
-        if is_rtl else
-        "For additional information, research papers, and technical insights, visit "
-    )
-    crun = end_p.add_run(concl_text)
-    apply_rtl_complex_run(crun, font_name=font_name, size_pt=10.5, color_rgb=COLOR_BODY, is_rtl=is_rtl)
-    add_hyperlink(end_p, source_url, source_url, font_name=font_name, size_pt=10.5, color_hex="1E3A8A", is_rtl=is_rtl)
-    dot_run = end_p.add_run(" مراجعه فرمایند." if is_rtl else ".")
-    apply_rtl_complex_run(dot_run, font_name=font_name, size_pt=10.5, color_rgb=COLOR_BODY, is_rtl=is_rtl)
+    # 7. Optional Author Conclusion (Only rendered if explicitly provided in article data)
+    concl_text = article.get("conclusion", "").strip()
+    if concl_text:
+        end_p = doc.add_paragraph()
+        set_paragraph_formatting(end_p, is_rtl=is_rtl, line_spacing=1.35, space_after=14, space_before=10, justify=True)
+        crun = end_p.add_run(concl_text)
+        apply_rtl_complex_run(crun, font_name=font_name, size_pt=11, color_rgb=COLOR_BODY, is_rtl=is_rtl)
 
 
 def create_blank_press_doc():
