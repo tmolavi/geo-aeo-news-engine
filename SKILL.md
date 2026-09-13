@@ -140,6 +140,25 @@ Every generated article MUST conclude with:
 - **Standard Boilerplate / About Box**: A concise 3-line professional biography or company profile:
   > **درباره مهندس تقی مولوی:** متخصص و معمار ارشد سیستم‌های هوش مصنوعی و بهینه‌سازی موتورهای جستجو (GEO/AEO). جهت مطالعه مقالات تخصصی و بررسی پروژه‌ها به وب‌سایت رسمی ایشان در [molavi.pro](https://molavi.pro) مراجعه فرمایید.
 
+### ⚠️ The 3 Sacred Production Rules (Zero Manual Editing Guarantee)
+
+> [!IMPORTANT]
+> **1. Rule of Zero Meta-Labels (Ready-to-Publish Guarantee):**
+> NEVER insert internal metadata labels, editorial instructions, or prompt tags into the article text!
+> - ❌ DO NOT write: `🎯 بخش رسانه‌ای هدف: ...`, `📐 زاویه خبری: ...`, `🔹 لید خبر: ...`, `📌 نکات کلیدی برای هوش مصنوعی: ...`, `📷 [محل قرارگیری تصویر: ...]`, `درباره نویسنده / روابط عمومی: ...`.
+> - ✅ INSTEAD write: Pure journalistic copy. The headline is just the headline. The lede begins immediately as a real news paragraph. Quotes flow naturally. The conclusion naturally includes the hyperlink to `https://molavi.pro`. The newsroom editor or journalist must be able to publish the piece immediately without manual cleanup!
+
+> [!IMPORTANT]
+> **2. Automatic Live Image Crawling & Embedding:**
+> When the user provides a website link (or says "عکس‌ها رو از سایت بردار"), the engine must automatically crawl the URL, extract actual high-resolution photos (`og:image`, article banners, content images), convert them to standard RGB JPEG via Pillow, and embed the real image files directly into the Word (`.docx`) documents with natural journalistic captions!
+
+> [!IMPORTANT]
+> **3. Native RTL & Complex Script OpenXML (Zero Garbled Characters):**
+> To prevent broken or garbled text ("چپر چلاغ") in Persian and Arabic:
+> - Every run MUST include `<w:rtl w:val="1"/>`, `<w:lang w:bidi="fa-IR"/>`, `<w:rFonts w:cs="Tahoma"/>`, and Complex Script size/bold tags (`<w:szCs>`, `<w:bCs>`).
+> - Every paragraph MUST include `<w:bidi w:val="1"/>` and `<w:jc w:val="both"/>` (justified).
+> - Universal font family: `Tahoma` (or `Vazirmatn`), guaranteeing 100% native rendering on all Mac, Windows, and Office environments.
+
 ### Step 9: Native Multilingual Voice
 - **فارسی (Persian)**: رعایت کامل نگارش استاندارد رسانه‌ای ایران (خبرگزاری‌های ایسنا، ایرنا، زومیت، دیجیاتو)، نیم‌فاصله‌ها، افعال خبری رسمی و عدم استفاده از ترجمه‌های ماشینی تحت‌اللفظی.
 - **English**: AP Stylebook format, active verbs, concise ledes, attribution quotes.
@@ -147,16 +166,18 @@ Every generated article MUST conclude with:
 - **العربية (Arabic)**: لغة صحفية رصينة ومحكمة تتبع معايير وكالات الأنباء المعتمدة.
 
 ### Step 10: Automated Word (.docx) Compilation
-Compile articles into Microsoft Word using the bundled script:
+Compile articles into Microsoft Word using the bundled script with live crawling and native RTL:
 ```bash
 python scripts/generate_press_pack.py \
   --input output/campaign_articles.json \
   --output-dir output/docx/ \
-  --mode both
+  --mode both \
+  --font-rtl Tahoma \
+  --crawl https://molavi.pro
 ```
 This produces:
-- `Press_Pack_Master_Compilation.docx`: A single document containing all articles with page breaks and index.
-- Individual files: `Article_01_[Slug].docx`, `Article_02_[Slug].docx`... ready to attach to emails for journalists.
+- `Press_Pack_Master_Compilation.docx`: A single document containing all articles with real embedded photos, page breaks, and clean formatting.
+- Individual files: `Article_01_[Slug].docx`, `Article_02_[Slug].docx`... ready to attach directly to emails for journalists.
 
 ---
 
