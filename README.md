@@ -127,15 +127,23 @@ Contributions, bug reports, and new editorial angle templates are welcome! Feel 
 
 ---
 
-## 📄 License
+---
 
-Distributed under the open-source [MIT License](LICENSE).
+## 🔗 Related Projects
+
+Part of the **Molavi AI Engineering Ecosystem**:
+
+* [**geo-scope**](https://github.com/tmolavi/geo-scope): Multi-model empirical AI visibility benchmark engine.
+* [**answerpath-geo**](https://github.com/tmolavi/answerpath-geo): Privacy-first question discovery and intent stratification engine.
+* [**sage-audit**](https://github.com/tmolavi/sage-audit): 3-Pillar static audit engine for SEO, AEO, and GEO.
+* [**siteprobe**](https://github.com/tmolavi/siteprobe): Autonomous crawler and safe source code fixer.
+* [**laravel-ai-summary**](https://github.com/tmolavi/laravel-ai-summary): Provider-agnostic AI summarization package.
+* [**Ecosystem Map**](https://github.com/tmolavi/geo-scope/blob/main/docs/GITHUB_ECOSYSTEM.md): Complete architecture and evidence flow.
 
 ---
 
-## 🔗 Author & Inquiries
+## 📄 License & Author
 
-Architected and developed by **Taghi Molavi** — Senior AI Systems Architect and researcher in Generative Engine Optimization (GEO) & Answer Engine Optimization (AEO).
+Developed by **Taghi Molavi** — [molavi.pro](https://molavi.pro)  
+Distributed under the open-source [MIT License](LICENSE).
 
-For enterprise AI consulting, agent workflows, and AI brand visibility:
-👉 **[https://molavi.pro](https://molavi.pro)**
